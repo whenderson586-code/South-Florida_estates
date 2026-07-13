@@ -1,0 +1,88 @@
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Portfolios - South Florida Estates</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="text-xl font-bold tracking-widest text-neutral-800 uppercase">South Florida <span class="font-light text-neutral-500">Estates</span></a>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wider uppercase text-neutral-600">
+                <a href="index.html" class="hover:text-black">Home</a>
+                <a href="about.html" class="hover:text-black">About Us</a>
+                <a href="sellers.html" class="hover:text-black">Sellers</a>
+                <a href="buyers.html" class="text-black font-semibold">Buyers</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="max-w-5xl mx-auto px-6 py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div class="lg:col-span-1">
+                <h1 class="text-3xl font-light uppercase tracking-widest mb-4">Acquisition Desk</h1>
+                <div class="h-0.5 w-12 bg-neutral-400 mb-6"></div>
+                <p class="text-sm text-neutral-600 font-light leading-relaxed mb-4">
+                    Acquiring premium positions in South Florida requires precise analysis of leverage parameters and interest conditions.
+                </p>
+                <p class="text-sm text-neutral-600 font-light leading-relaxed">
+                    Utilize our local estimation model below to analyze structural debt outlays and target acquisition pricing accurately.
+                </p>
+            </div>
+
+            <!-- Dynamic Mortgage Calculator -->
+            <div class="lg:col-span-2 bg-white p-8 border border-neutral-200 shadow-xl">
+                <h2 class="text-lg uppercase tracking-wider font-semibold mb-6 text-neutral-800"><i class="fa-solid fa-calculator mr-2 text-neutral-500"></i>Purchase Outlay Calculator</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-1">Target Asset Price ($)</label>
+                        <input type="number" id="calc-price" value="540000" class="w-full bg-neutral-50 border border-neutral-200 px-4 py-2.5 text-sm focus:outline-none">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-1">Down Capital Allocation ($)</label>
+                            <input type="number" id="calc-down" value="108000" class="w-full bg-neutral-50 border border-neutral-200 px-4 py-2.5 text-sm focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-1">Note Interest Rate (%)</label>
+                            <input type="number" id="calc-rate" value="6.5" step="0.1" class="w-full bg-neutral-50 border border-neutral-200 px-4 py-2.5 text-sm focus:outline-none">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-1">Amortization Period</label>
+                        <select id="calc-term" class="w-full bg-neutral-50 border border-neutral-200 px-4 py-2.5 text-sm focus:outline-none">
+                            <option value="30">30-Year Fixed Term</option>
+                            <option value="15">15-Year Fixed Term</option>
+                        </select>
+                    </div>
+                    <button onclick="calculateMortgage()" class="w-full bg-neutral-900 text-white text-xs font-bold uppercase tracking-widest py-3 hover:bg-black transition-colors">Run Outlay Calculations</button>
+                    <div class="mt-6 p-4 bg-neutral-50 text-center border border-neutral-100">
+                        <div class="text-xs uppercase tracking-wider text-neutral-400 mb-1">Estimated Principal & Interest Output</div>
+                        <div id="calc-result" class="text-3xl font-bold text-neutral-900">$2,730.54</div>
+                        <div class="text-[10px] text-neutral-400 mt-2">*Excludes dynamic local real estate taxes and insurance structures.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function calculateMortgage() {
+            const price = parseFloat(document.getElementById('calc-price').value);
+            const down = parseFloat(document.getElementById('calc-down').value);
+            const rate = parseFloat(document.getElementById('calc-rate').value) / 100 / 12;
+            const term = parseInt(document.getElementById('calc-term').value) * 12;
+            const principal = price - down;
+            if (principal <= 0) { document.getElementById('calc-result').innerText = "$0.00"; return; }
+            const monthlyPayment = (principal * rate * Math.pow(1 + rate, term)) / (Math.pow(1 + rate, term) - 1);
+            if (!isNaN(monthlyPayment) && isFinite(monthlyPayment)) {
+                document.getElementById('calc-result').innerText = "$" + monthlyPayment.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            } else { document.getElementById('calc-result').innerText = "Input Error"; }
+        }
+    </script>
+</body>
+</html>
