@@ -1,4 +1,4 @@
-HTML
+HHTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +6,30 @@ HTML
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>South Florida Estates</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Hero Section with Miami Background */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1506970113724-bc41e3896502?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            height: 450px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .hero p {
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+    </style>
 </head>
 <body>
 
@@ -18,136 +42,24 @@ HTML
         <a href="about.html">About Us</a>
         <a href="buyers.html">Buyers</a>
         <a href="sellers.html">Sellers</a>
-        <a href="rentals.html">Rentals</a>
-        <a href="commercial.html">Commercial</a>
+        <a href="Rentals.html">Rentals</a>
+        <a href="Commercial.html">Commercial</a>
         <a href="agents.html">Agents</a>
         <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact Us</a>
+        <a href="Contact Us.html">Contact Us</a>
     </nav>
 </header>
 
-<div class="container" style="text-align: center; padding: 50px 20px;">
+<section class="hero">
     <h2>Welcome to South Florida Estates</h2>
     <p>Connecting you to elite properties across South Florida's finest coastlines.</p>
-</div>
+</section>
 
 <footer>
-    <p><strong>Premier Elite Realty / Royal Global Agency</strong></p>
+    <p><strong>    </strong></p>
     <p>William Henderson, Licensed Real Estate Broker</p>
     <p>Miami, Florida</p>
 </footer>
 
-</body>
-</html>    <p class="company-name">Premier Elite Realty / Royal Global Agency</p>
-    <p>William Henderson, Licensed Real Estate Broker</p>
-    <p>Miami, Florida</p>
-    <p>&copy; 2026 South Florida Estates. All Rights Reserved.</p>
-</footer>
-
-</body>
-</html>                <div>
-                    <label class="block text-xs uppercase tracking-wider text-neutral-500 font-semibold mb-2">County Region</label>
-                    <select id="filter-county" onchange="filterProperties()" class="w-full bg-neutral-50 border border-neutral-200 text-neutral-700 px-4 py-3 text-sm focus:outline-none focus:border-neutral-500">
-                        <option value="all">All Regions</option>
-                        <option value="miami">Miami-Dade County</option>
-                        <option value="broward">Broward County</option>
-                        <option value="palm-beach">Palm Beach County</option>
-                        <option value="monroe">Monroe County (The Keys)</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs uppercase tracking-wider text-neutral-500 font-semibold mb-2">Architectural Style</label>
-                    <select id="filter-style" onchange="filterProperties()" class="w-full bg-neutral-50 border border-neutral-200 text-neutral-700 px-4 py-3 text-sm focus:outline-none focus:border-neutral-500">
-                        <option value="all">All Styles</option>
-                        <option value="modern">Modern Contemporary</option>
-                        <option value="mediterranean">Mediterranean</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs uppercase tracking-wider text-neutral-500 font-semibold mb-2">Elite Features</label>
-                    <select id="filter-amenity" onchange="filterProperties()" class="w-full bg-neutral-50 border border-neutral-200 text-neutral-700 px-4 py-3 text-sm focus:outline-none focus:border-neutral-500">
-                        <option value="all">All Features</option>
-                        <option value="waterfront">Waterfront / Dockage</option>
-                        <option value="gated">Gated Communities</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs uppercase tracking-wider text-neutral-500 font-semibold mb-2">Target Price</label>
-                    <select id="filter-price" onchange="filterProperties()" class="w-full bg-neutral-50 border border-neutral-200 text-neutral-700 px-4 py-3 text-sm focus:outline-none focus:border-neutral-500">
-                        <option value="all">Any Price</option>
-                        <option value="under-1m">Under $1,000,000</option>
-                        <option value="over-1m">Over $1,000,000</option>
-                    </select>
-                </div>
-            </div>
-            <div class="mt-4 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-400">
-                <span><i class="fa-solid fa-circle-check text-green-500 mr-1"></i> Structure Optimized for South Florida MLS Integration</span>
-                <button onclick="resetFilters()" class="text-neutral-600 hover:text-black underline uppercase tracking-wider">Clear Filters</button>
-            </div>
-        </div>
-
-        <!-- Grid Cards -->
-        <div id="property-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="property-card bg-white border border-neutral-100 overflow-hidden group hover:shadow-2xl transition-all duration-300" data-county="miami" data-style="modern" data-amenity="waterfront" data-price="over-1m">
-                <div class="relative overflow-hidden aspect-[4/3]"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>
-                <div class="p-6">
-                    <div class="text-xs uppercase tracking-widest text-neutral-400 mb-1">Modern Contemporary</div>
-                    <h3 class="text-xl font-light text-neutral-800 mb-2">Biscayne Bay Estate</h3>
-                    <div class="text-xl font-semibold text-neutral-900 mb-4">$5,400,000</div>
-                    <p class="text-xs text-neutral-500"><i class="fa-solid fa-location-dot mr-2"></i>Miami-Dade County, FL</p>
-                </div>
-            </div>
-
-            <div class="property-card bg-white border border-neutral-100 overflow-hidden group hover:shadow-2xl transition-all duration-300" data-county="broward" data-style="mediterranean" data-amenity="gated" data-price="over-1m">
-                <div class="relative overflow-hidden aspect-[4/3]"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>
-                <div class="p-6">
-                    <div class="text-xs uppercase tracking-widest text-neutral-400 mb-1">Mediterranean Classic</div>
-                    <h3 class="text-xl font-light text-neutral-800 mb-2">Las Olas Enclave</h3>
-                    <div class="text-xl font-semibold text-neutral-900 mb-4">$3,250,000</div>
-                    <p class="text-xs text-neutral-500"><i class="fa-solid fa-location-dot mr-2"></i>Broward County, FL</p>
-                </div>
-            </div>
-
-            <div class="property-card bg-white border border-neutral-100 overflow-hidden group hover:shadow-2xl transition-all duration-300" data-county="monroe" data-style="modern" data-amenity="waterfront" data-price="over-1m">
-                <div class="relative overflow-hidden aspect-[4/3]"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>
-                <div class="p-6">
-                    <div class="text-xs uppercase tracking-widest text-neutral-400 mb-1">Modern Oasis</div>
-                    <h3 class="text-xl font-light text-neutral-800 mb-2">Islamorada Deep-Water Retreat</h3>
-                    <div class="text-xl font-semibold text-neutral-900 mb-4">$4,950,000</div>
-                    <p class="text-xs text-neutral-500"><i class="fa-solid fa-location-dot mr-2"></i>Monroe County, FL</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-neutral-950 text-neutral-500 py-8 text-center text-xs tracking-wider uppercase border-t border-neutral-900">
-        <p>&copy; 2026 South Florida Estates. All Rights Reserved.</p>
-    </footer>
-
-    <script>
-        function filterProperties() {
-            const county = document.getElementById('filter-county').value;
-            const style = document.getElementById('filter-style').value;
-            const amenity = document.getElementById('filter-amenity').value;
-            const price = document.getElementById('filter-price').value;
-            const cards = document.querySelectorAll('.property-card');
-
-            cards.forEach(card => {
-                const mCounty = (county === 'all' || card.getAttribute('data-county') === county);
-                const mStyle = (style === 'all' || card.getAttribute('data-style') === style);
-                const mAmenity = (amenity === 'all' || card.getAttribute('data-amenity') === amenity);
-                const mPrice = (price === 'all' || card.getAttribute('data-price') === price);
-
-                card.style.display = (mCounty && mStyle && mAmenity && mPrice) ? 'block' : 'none';
-            });
-        }
-        function resetFilters() {
-            document.getElementById('filter-county').value = 'all';
-            document.getElementById('filter-style').value = 'all';
-            document.getElementById('filter-amenity').value = 'all';
-            document.getElementById('filter-price').value = 'all';
-            filterProperties(); 
-        }
-    </script>
 </body>
 </html>
