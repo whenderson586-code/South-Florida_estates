@@ -4,62 +4,44 @@ HTML
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>South Florida Premium Real Estate</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .hero-gradient {
-            background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.45)), 
-                        url('https://images.unsplash.com/photo-1506970845246-18f21d533b20?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-        }
-    </style>
+    <title>South Florida Estates</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-50 font-sans text-gray-900 antialiased">
+<body>
 
-    <!-- Header / Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="index.html" class="text-xl font-bold tracking-widest text-neutral-800 uppercase">
-                South Florida <span class="font-light text-neutral-500">Estates</span>
-            </a>
-            <nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wider uppercase text-neutral-600">
-                <a href="index.html" class="text-black font-semibold">Home</a>
-                <a href="about.html" class="hover:text-black transition-colors">About Us</a>
-                <a href="sellers.html" class="hover:text-black transition-colors">Sellers</a>
-                <a href="buyers.html" class="hover:text-black transition-colors">Buyers</a>
-            </nav>
-            <div class="hidden md:block">
-                <a href="sellers.html" class="border border-neutral-800 text-neutral-800 px-6 py-2 text-xs tracking-widest uppercase hover:bg-neutral-800 hover:text-white transition-all duration-300">
-                    Get Valuation
-                </a>
-            </div>
-        </div>
-    </header>
+<header>
+    <div class="logo">
+        <h1>SOUTH FLORIDA ESTATES</h1>
+    </div>
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="buyers.html">Buyers</a>
+        <a href="sellers.html">Sellers</a>
+        <a href="rentals.html">Rentals</a>
+        <a href="commercial.html">Commercial</a>
+        <a href="agents.html">Agents</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero-gradient h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
-        <h1 class="text-white text-4xl md:text-6xl font-light tracking-wide uppercase mb-4 max-w-4xl">
-            South Florida Luxury Living
-        </h1>
-        <p class="text-neutral-200 text-lg md:text-xl font-light max-w-2xl mb-12 tracking-wide">
-            Elite portfolios across Miami-Dade, Broward, Palm Beach, and Monroe Counties.
-        </p>
-        <a href="#listings" class="bg-white text-neutral-900 px-8 py-3 text-sm tracking-widest uppercase hover:bg-neutral-900 hover:text-white transition-all duration-300 shadow-lg">
-            Explore Properties
-        </a>
-    </section>
+<div class="container">
+    <h2 class="page-title">Welcome to South Florida Estates</h2>
+    <p class="intro-text">
+        Connecting you to elite properties across South Florida's finest coastlines. Whether you are buying, selling, renting, or investing in commercial assets, our specialized broker services ensure a premium, customized transition.
+    </p>
+</div>
 
-    <!-- Listings Grid Section -->
-    <section id="listings" class="max-w-7xl mx-auto px-6 py-24">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-light uppercase tracking-widest text-neutral-800 mb-2">Featured Portfolios</h2>
-            <div class="h-0.5 w-16 bg-neutral-400 mx-auto"></div>
-        </div>
+<footer>
+    <p class="company-name">Premier Elite Realty / Royal Global Agency</p>
+    <p>William Henderson, Licensed Real Estate Broker</p>
+    <p>Miami, Florida</p>
+    <p>&copy; 2026 South Florida Estates. All Rights Reserved.</p>
+</footer>
 
-        <!-- Filter Panel -->
-        <div class="bg-white p-6 md:p-8 border border-neutral-100 shadow-xl mb-12 -mt-20 relative z-20">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div>
+</body>
+</html>                <div>
                     <label class="block text-xs uppercase tracking-wider text-neutral-500 font-semibold mb-2">County Region</label>
                     <select id="filter-county" onchange="filterProperties()" class="w-full bg-neutral-50 border border-neutral-200 text-neutral-700 px-4 py-3 text-sm focus:outline-none focus:border-neutral-500">
                         <option value="all">All Regions</option>
