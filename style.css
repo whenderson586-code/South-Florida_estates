@@ -1,225 +1,77 @@
 CSS
-/* --- Master Stylesheet for South Florida Estates --- */
-* {
-    box-sizing: border-box;
+/* Clean Website Styling */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-}
-
-body {
-    background-color: #f9f9f9;
+    background-color: #f4f6f9;
     color: #333;
-    line-height: 1.6;
 }
 
-/* Header & Mobile-Responsive Navigation */
 header {
-    background-color: #1a252f;
+    background-color: #1a365d;
     color: white;
-    padding: 15px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    padding: 20px;
+    text-align: center;
 }
 
-.logo h1 {
-    font-size: 22px;
-    font-weight: bold;
-    color: #f39c12;
+header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
 }
 
-/* Mobile Friendly Menu Layout */
 nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    margin-top: 15px;
 }
 
 nav a {
-    color: white;
+    color: #e2e8f0;
     text-decoration: none;
-    font-size: 14px;
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: background 0.3s;
+    margin: 0 12px;
+    font-weight: 500;
 }
 
 nav a:hover, nav a.active {
-    background-color: #f39c12;
-    color: #1a252f;
-    font-weight: bold;
+    color: #fff;
+    text-decoration: underline;
 }
 
-/* Hero & Main Content Containers */
-.container {
-    max-width: 1100px;
-    margin: 30px auto;
-    padding: 0 20px;
-}
-
-.page-title {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #1a252f;
-}
-
-.intro-text {
-    font-size: 18px;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 40px auto;
-    color: #555;
-}
-
-/* Property Showcase Grid */
-.showcase-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-bottom: 50px;
-}
-
-.property-card {
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-}
-
-.property-card:hover {
-    transform: translateY(-5px);
-}
-
-.property-img {
-    width: 100%;
-    height: 200px;
-    background-color: #ddd;
+/* Beautiful Miami Background Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                url('https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+    height: 450px;
+    color: white;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    color: #777;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.property-info {
+    align-items: center;
+    text-align: center;
     padding: 20px;
 }
 
-.property-price {
-    font-size: 22px;
-    font-weight: bold;
-    color: #2c3e50;
-    margin-bottom: 5px;
+.hero h2 {
+    font-size: 3rem;
+    margin: 0 0 10px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 
-.property-details {
-    color: #777;
-    font-size: 14px;
-    margin-bottom: 10px;
+.hero p {
+    font-size: 1.5rem;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
 }
 
-/* Lead Capture Form Styling */
-.lead-capture {
-    background-color: #1a252f;
-    color: white;
-    padding: 40px;
-    border-radius: 8px;
-    max-width: 600px;
-    margin: 40px auto;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.lead-capture h3 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #f39c12;
-}
-
-.lead-capture form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.lead-capture input, .lead-capture select, .lead-capture textarea {
-    padding: 12px;
-    border-radius: 4px;
-    border: none;
-    font-size: 16px;
-}
-
-.lead-capture button {
-    background-color: #f39c12;
-    color: #1a252f;
-    font-weight: bold;
-    border: none;
-    padding: 15px;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 4px;
-    transition: background 0.3s;
-}
-
-.lead-capture button:hover {
-    background-color: #e67e22;
-}
-
-/* Agent Profiles / Blog Layout */
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-}
-
-.profile-card, .blog-card {
-    background: white;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-/* Footer Styling */
 footer {
-    background-color: #1a252f;
-    color: #bdc3c7;
+    background-color: #1a365d;
+    color: white;
     text-align: center;
-    padding: 30px 20px;
-    margin-top: 60px;
-    border-top: 5px solid #f39c12;
+    padding: 20px;
+    margin-top: 40px;
 }
 
 footer p {
-    margin-bottom: 5px;
-    font-size: 14px;
-}
-
-footer .company-name {
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 10px;
-}
-
-/* Mobile Optimization Overrides */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-    nav {
-        justify-content: center;
-        width: 100%;
-    }
-    nav a {
-        font-size: 13px;
-        padding: 6px 10px;
-    }
+    margin: 5px 0;
+    font-size: 0.95rem;
 }
