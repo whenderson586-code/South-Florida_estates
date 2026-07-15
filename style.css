@@ -1,0 +1,225 @@
+CSS
+/* --- Master Stylesheet for South Florida Estates --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header & Mobile-Responsive Navigation */
+header {
+    background-color: #1a252f;
+    color: white;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo h1 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #f39c12;
+}
+
+/* Mobile Friendly Menu Layout */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+nav a:hover, nav a.active {
+    background-color: #f39c12;
+    color: #1a252f;
+    font-weight: bold;
+}
+
+/* Hero & Main Content Containers */
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1a252f;
+}
+
+.intro-text {
+    font-size: 18px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    color: #555;
+}
+
+/* Property Showcase Grid */
+.showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.property-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.property-card:hover {
+    transform: translateY(-5px);
+}
+
+.property-img {
+    width: 100%;
+    height: 200px;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.property-info {
+    padding: 20px;
+}
+
+.property-price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.property-details {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Lead Capture Form Styling */
+.lead-capture {
+    background-color: #1a252f;
+    color: white;
+    padding: 40px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 40px auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.lead-capture h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #f39c12;
+}
+
+.lead-capture form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.lead-capture input, .lead-capture select, .lead-capture textarea {
+    padding: 12px;
+    border-radius: 4px;
+    border: none;
+    font-size: 16px;
+}
+
+.lead-capture button {
+    background-color: #f39c12;
+    color: #1a252f;
+    font-weight: bold;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.lead-capture button:hover {
+    background-color: #e67e22;
+}
+
+/* Agent Profiles / Blog Layout */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.profile-card, .blog-card {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Footer Styling */
+footer {
+    background-color: #1a252f;
+    color: #bdc3c7;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 60px;
+    border-top: 5px solid #f39c12;
+}
+
+footer p {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+footer .company-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+}
+
+/* Mobile Optimization Overrides */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    nav {
+        justify-content: center;
+        width: 100%;
+    }
+    nav a {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+}
