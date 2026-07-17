@@ -1,87 +1,688 @@
-HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>South Florida Estates</title>
-    <link rel="stylesheet" href="style.css">
+
+    <title>South Florida Estates | Luxury Real Estate Brokerage</title>
+
+    <meta
+        name="description"
+        content="South Florida Estates represents buyers, sellers, investors and luxury property owners throughout Miami-Dade, Broward, Palm Beach and the Florida Keys."
+    >
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        luxuryGold: "#c6a15b",
+                        luxuryDark: "#111111",
+                        luxuryCream: "#f5f1e8"
+                    },
+                    fontFamily: {
+                        display: ["Cormorant Garamond", "serif"],
+                        body: ["Montserrat", "sans-serif"]
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .hero-background {
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.48),
+                    rgba(0, 0, 0, 0.62)
+                ),
+                url("https://images.unsplash.com/photo-1535498730771-e735b998cd64?auto=format&fit=crop&w=2000&q=90");
+
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .property-image {
+            transition: transform 0.7s ease;
+        }
+
+        .property-card:hover .property-image {
+            transform: scale(1.06);
+        }
+    </style>
 </head>
-<body>
 
-<header>
-    <div class="logo">
-        <h1>SOUTH FLORIDA ESTATES</h1>
-    </div>
-    <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="buyers.html">Buyers</a>
-        <a href="sellers.html">Sellers</a>
-        <a href="rentals.html">Rentals</a>
-        <a href="commercial.html">Commercial</a>
-        <a href="agents.html">Agents</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact Us</a>
-    </nav>
-</header>
+<body class="bg-white text-neutral-900">
 
-<section class="hero">
-    <h2>Welcome to South Florida Estates</h2>
-    <p>Connecting you to elite properties across South Florida's finest coastlines.</p>
-</section>
+    <!-- Navigation -->
+    <header class="absolute top-0 left-0 right-0 z-50 border-b border-white/20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="min-h-24 flex items-center justify-between">
 
-<main class="listings-section">
-    <h3>Properties by Territory</h3>
-    <div class="listings-grid">
-        
-        <!-- Miami-Dade County -->
-        <div class="property-card">
-            <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80" alt="Miami-Dade County Properties" class="property-img">
-            <div class="property-details">
-                <h4 class="property-title">Miami-Dade County</h4>
-                <p class="property-specs">Explore luxury residential, vacant land, and prime commercial developments in Miami, Coral Gables, and Homestead.</p>
-                <a href="contact.html" class="property-btn">View Dade Listings</a>
+                <a href="index.html" class="text-white">
+                    <div class="font-display text-2xl md:text-3xl tracking-[0.15em] uppercase">
+                        South Florida
+                    </div>
+
+                    <div class="text-[10px] tracking-[0.48em] uppercase text-luxuryGold">
+                        Estates
+                    </div>
+                </a>
+
+                <button
+                    id="mobile-menu-button"
+                    class="lg:hidden text-white text-2xl"
+                    aria-label="Open navigation menu"
+                >
+                    ☰
+                </button>
+
+                <nav class="hidden lg:flex items-center gap-7 text-[11px] uppercase tracking-[0.18em] text-white">
+                    <a href="index.html" class="text-luxuryGold">Home</a>
+                    <a href="about.html" class="hover:text-luxuryGold transition">About Us</a>
+                    <a href="buyers.html" class="hover:text-luxuryGold transition">Buyers</a>
+                    <a href="sellers.html" class="hover:text-luxuryGold transition">Sellers</a>
+                    <a href="rentals.html" class="hover:text-luxuryGold transition">Rentals</a>
+                    <a href="commercial.html" class="hover:text-luxuryGold transition">Commercial</a>
+                    <a href="agents.html" class="hover:text-luxuryGold transition">Agents</a>
+                    <a href="blog.html" class="hover:text-luxuryGold transition">Blog</a>
+
+                    <a
+                        href="contact.html"
+                        class="border border-luxuryGold px-5 py-3 hover:bg-luxuryGold hover:text-black transition"
+                    >
+                        Contact
+                    </a>
+                </nav>
+            </div>
+
+            <nav
+                id="mobile-menu"
+                class="hidden lg:hidden pb-6 text-sm uppercase tracking-wider text-white"
+            >
+                <div class="flex flex-col gap-4">
+                    <a href="index.html" class="text-luxuryGold">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="buyers.html">Buyers</a>
+                    <a href="sellers.html">Sellers</a>
+                    <a href="rentals.html">Rentals</a>
+                    <a href="commercial.html">Commercial</a>
+                    <a href="agents.html">Agents</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Full-Screen Hero -->
+    <section class="hero-background min-h-screen flex items-center justify-center text-white">
+        <div class="max-w-5xl mx-auto px-6 text-center pt-24">
+
+            <p class="text-luxuryGold text-xs md:text-sm uppercase tracking-[0.4em] mb-6">
+                Miami · Fort Lauderdale · Palm Beach · Florida Keys
+            </p>
+
+            <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] mb-7">
+                Luxury Real Estate
+                <span class="block font-light italic">
+                    Across South Florida
+                </span>
+            </h1>
+
+            <p class="max-w-3xl mx-auto text-sm md:text-lg font-light leading-8 text-white/85 mb-10">
+                Strategic representation for buyers, sellers, investors,
+                waterfront property owners and luxury real estate clients
+                throughout South Florida.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a
+                    href="#featured-properties"
+                    class="w-full sm:w-auto bg-luxuryGold text-black px-9 py-4 text-xs font-semibold uppercase tracking-[0.2em] hover:bg-white transition"
+                >
+                    Explore Properties
+                </a>
+
+                <a
+                    href="sellers.html"
+                    class="w-full sm:w-auto border border-white px-9 py-4 text-xs font-semibold uppercase tracking-[0.2em] hover:bg-white hover:text-black transition"
+                >
+                    What Is My Home Worth?
+                </a>
             </div>
         </div>
 
-        <!-- Broward County -->
-        <div class="property-card">
-            <img src="https://images.unsplash.com/photo-1506970113724-bc41e3896502?auto=format&fit=crop&w=600&q=80" alt="Broward County Properties" class="property-img">
-            <div class="property-details">
-                <h4 class="property-title">Broward County</h4>
-                <p class="property-specs">Featuring premier properties, multi-family investments, and coastal estates in Fort Lauderdale and Pompano Beach.</p>
-                <a href="contact.html" class="property-btn">View Broward Listings</a>
+        <a
+            href="#explore"
+            class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/80 text-[10px] uppercase tracking-[0.3em]"
+        >
+            Scroll to Explore
+        </a>
+    </section>
+
+    <!-- Intro -->
+    <section id="explore" class="py-24 md:py-32 bg-white">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+
+            <p class="text-luxuryGold text-xs uppercase tracking-[0.35em] mb-5">
+                South Florida Estates
+            </p>
+
+            <h2 class="font-display text-4xl md:text-6xl leading-tight mb-8">
+                Local Expertise.
+                <span class="italic font-light">Elevated Representation.</span>
+            </h2>
+
+            <p class="max-w-3xl mx-auto text-neutral-600 font-light leading-8">
+                Our brokerage delivers personalized guidance, strategic
+                marketing and skilled negotiation for residential, luxury,
+                investment, rental and commercial real estate transactions.
+            </p>
+        </div>
+    </section>
+
+    <!-- County Areas -->
+    <section class="pb-24 md:pb-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+                <div>
+                    <p class="text-luxuryGold text-xs uppercase tracking-[0.35em] mb-3">
+                        Our Markets
+                    </p>
+
+                    <h2 class="font-display text-4xl md:text-5xl">
+                        Explore South Florida
+                    </h2>
+                </div>
+
+                <p class="max-w-xl text-sm text-neutral-500 font-light leading-7">
+                    From iconic Miami condominiums to oceanfront estates,
+                    investment opportunities and private island living.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+
+                <a href="contact.html" class="property-card relative h-[430px] overflow-hidden group">
+                    <img
+                        src="https://images.unsplash.com/photo-1514214246283-d427a95c5d2f?auto=format&fit=crop&w=900&q=85"
+                        alt="Miami-Dade luxury real estate"
+                        class="property-image absolute inset-0 w-full h-full object-cover"
+                    >
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent"></div>
+
+                    <div class="absolute bottom-0 p-7 text-white">
+                        <p class="text-luxuryGold text-[10px] uppercase tracking-[0.3em] mb-2">
+                            Coastal Luxury
+                        </p>
+
+                        <h3 class="font-display text-3xl mb-2">
+                            Miami-Dade
+                        </h3>
+
+                        <p class="text-xs text-white/75 leading-6">
+                            Miami Beach, Brickell, Coral Gables, Coconut Grove
+                            and surrounding communities.
+                        </p>
+                    </div>
+                </a>
+
+                <a href="contact.html" class="property-card relative h-[430px] overflow-hidden group">
+                    <img
+                        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85"
+                        alt="Broward County luxury real estate"
+                        class="property-image absolute inset-0 w-full h-full object-cover"
+                    >
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent"></div>
+
+                    <div class="absolute bottom-0 p-7 text-white">
+                        <p class="text-luxuryGold text-[10px] uppercase tracking-[0.3em] mb-2">
+                            Waterfront Living
+                        </p>
+
+                        <h3 class="font-display text-3xl mb-2">
+                            Broward
+                        </h3>
+
+                        <p class="text-xs text-white/75 leading-6">
+                            Fort Lauderdale, Hollywood, Pompano Beach and
+                            premier waterfront communities.
+                        </p>
+                    </div>
+                </a>
+
+                <a href="contact.html" class="property-card relative h-[430px] overflow-hidden group">
+                    <img
+                        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=85"
+                        alt="Palm Beach County luxury real estate"
+                        class="property-image absolute inset-0 w-full h-full object-cover"
+                    >
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent"></div>
+
+                    <div class="absolute bottom-0 p-7 text-white">
+                        <p class="text-luxuryGold text-[10px] uppercase tracking-[0.3em] mb-2">
+                            Estate Living
+                        </p>
+
+                        <h3 class="font-display text-3xl mb-2">
+                            Palm Beach
+                        </h3>
+
+                        <p class="text-xs text-white/75 leading-6">
+                            Palm Beach, Boca Raton, Delray Beach and exclusive
+                            golf and waterfront communities.
+                        </p>
+                    </div>
+                </a>
+
+                <a href="contact.html" class="property-card relative h-[430px] overflow-hidden group">
+                    <img
+                        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=85"
+                        alt="Florida Keys luxury real estate"
+                        class="property-image absolute inset-0 w-full h-full object-cover"
+                    >
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent"></div>
+
+                    <div class="absolute bottom-0 p-7 text-white">
+                        <p class="text-luxuryGold text-[10px] uppercase tracking-[0.3em] mb-2">
+                            Island Lifestyle
+                        </p>
+
+                        <h3 class="font-display text-3xl mb-2">
+                            Florida Keys
+                        </h3>
+
+                        <p class="text-xs text-white/75 leading-6">
+                            Key Largo, Islamorada, Marathon and exceptional
+                            oceanfront opportunities.
+                        </p>
+                    </div>
+                </a>
+
             </div>
         </div>
+    </section>
 
-        <!-- Palm Beach County -->
-        <div class="property-card">
-            <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=600&q=80" alt="Palm Beach County Properties" class="property-img">
-            <div class="property-details">
-                <h4 class="property-title">Palm Beach County</h4>
-                <p class="property-specs">Discover exceptional waterfront estates, golf communities, and investment land in West Palm Beach and Boca Raton.</p>
-                <a href="contact.html" class="property-btn">View Palm Beach Listings</a>
+    <!-- Featured Properties -->
+    <section id="featured-properties" class="py-24 md:py-32 bg-luxuryCream">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center mb-14">
+                <p class="text-luxuryGold text-xs uppercase tracking-[0.35em] mb-4">
+                    Curated Opportunities
+                </p>
+
+                <h2 class="font-display text-4xl md:text-6xl">
+                    Featured Properties
+                </h2>
+
+                <p class="max-w-2xl mx-auto mt-5 text-sm text-neutral-600 font-light leading-7">
+                    Sample luxury opportunities representing the markets and
+                    property styles served by South Florida Estates.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
+
+                <article class="property-card bg-white overflow-hidden shadow-sm">
+                    <div class="h-64 overflow-hidden">
+                        <img
+                            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85"
+                            alt="Miami Beach waterfront residence"
+                            class="property-image w-full h-full object-cover"
+                        >
+                    </div>
+
+                    <div class="p-6">
+                        <p class="text-luxuryGold text-[10px] uppercase tracking-[0.25em]">
+                            Miami Beach
+                        </p>
+
+                        <h3 class="font-display text-2xl mt-2">
+                            Oceanfront Residence
+                        </h3>
+
+                        <p class="text-sm text-neutral-500 mt-3">
+                            3 Beds · 3.5 Baths · Waterfront
+                        </p>
+
+                        <a
+                            href="contact.html"
+                            class="inline-block mt-6 text-xs uppercase tracking-[0.2em] border-b border-luxuryGold pb-1"
+                        >
+                            Request Details
+                        </a>
+                    </div>
+                </article>
+
+                <article class="property-card bg-white overflow-hidden shadow-sm">
+                    <div class="h-64 overflow-hidden">
+                        <img
+                            src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=85"
+                            alt="Brickell luxury condominium"
+                            class="property-image w-full h-full object-cover"
+                        >
+                    </div>
+
+                    <div class="p-6">
+                        <p class="text-luxuryGold text-[10px] uppercase tracking-[0.25em]">
+                            Brickell
+                        </p>
+
+                        <h3 class="font-display text-2xl mt-2">
+                            Skyline Condominium
+                        </h3>
+
+                        <p class="text-sm text-neutral-500 mt-3">
+                            2 Beds · 2.5 Baths · City Views
+                        </p>
+
+                        <a
+                            href="contact.html"
+                            class="inline-block mt-6 text-xs uppercase tracking-[0.2em] border-b border-luxuryGold pb-1"
+                        >
+                            Request Details
+                        </a>
+                    </div>
+                </article>
+
+                <article class="property-card bg-white overflow-hidden shadow-sm">
+                    <div class="h-64 overflow-hidden">
+                        <img
+                            src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=900&q=85"
+                            alt="Coral Gables luxury estate"
+                            class="property-image w-full h-full object-cover"
+                        >
+                    </div>
+
+                    <div class="p-6">
+                        <p class="text-luxuryGold text-[10px] uppercase tracking-[0.25em]">
+                            Coral Gables
+                        </p>
+
+                        <h3 class="font-display text-2xl mt-2">
+                            Private Estate
+                        </h3>
+
+                        <p class="text-sm text-neutral-500 mt-3">
+                            5 Beds · 5 Baths · Pool
+                        </p>
+
+                        <a
+                            href="contact.html"
+                            class="inline-block mt-6 text-xs uppercase tracking-[0.2em] border-b border-luxuryGold pb-1"
+                        >
+                            Request Details
+                        </a>
+                    </div>
+                </article>
+
+                <article class="property-card bg-white overflow-hidden shadow-sm">
+                    <div class="h-64 overflow-hidden">
+                        <img
+                            src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=85"
+                            alt="Fort Lauderdale waterfront home"
+                            class="property-image w-full h-full object-cover"
+                        >
+                    </div>
+
+                    <div class="p-6">
+                        <p class="text-luxuryGold text-[10px] uppercase tracking-[0.25em]">
+                            Fort Lauderdale
+                        </p>
+
+                        <h3 class="font-display text-2xl mt-2">
+                            Waterfront Modern
+                        </h3>
+
+                        <p class="text-sm text-neutral-500 mt-3">
+                            4 Beds · 4.5 Baths · Dock
+                        </p>
+
+                        <a
+                            href="contact.html"
+                            class="inline-block mt-6 text-xs uppercase tracking-[0.2em] border-b border-luxuryGold pb-1"
+                        >
+                            Request Details
+                        </a>
+                    </div>
+                </article>
+
             </div>
         </div>
+    </section>
 
-        <!-- Monroe County (The Keys) -->
-        <div class="property-card">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Monroe County Properties" class="property-img">
-            <div class="property-details">
-                <h4 class="property-title">Monroe County (The Keys)</h4>
-                <p class="property-specs">Uncover exclusive oceanfront homes, vacant waterfront lots, and deep-water canal properties in Key Largo and Islamorada.</p>
-                <a href="contact.html" class="property-btn">View Monroe Listings</a>
+    <!-- Broker Section -->
+    <section class="py-24 md:py-32 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+
+                <div>
+                    <p class="text-luxuryGold text-xs uppercase tracking-[0.35em] mb-4">
+                        Your South Florida Broker
+                    </p>
+
+                    <h2 class="font-display text-4xl md:text-6xl leading-tight mb-7">
+                        Experience, Strategy
+                        <span class="block italic font-light">
+                            and Personal Service
+                        </span>
+                    </h2>
+
+                    <p class="text-neutral-600 font-light leading-8 mb-5">
+                        William Henderson provides personalized representation
+                        for buyers, sellers, landlords, tenants and investors
+                        across South Florida.
+                    </p>
+
+                    <p class="text-neutral-600 font-light leading-8 mb-8">
+                        Every client receives direct communication, honest
+                        guidance and a strategy tailored to their property,
+                        goals and timeline.
+                    </p>
+
+                    <a
+                        href="about.html"
+                        class="inline-block bg-luxuryDark text-white px-8 py-4 text-xs uppercase tracking-[0.2em] hover:bg-luxuryGold hover:text-black transition"
+                    >
+                        Meet William Henderson
+                    </a>
+                </div>
+
+                <div class="bg-luxuryDark text-white p-10 md:p-14">
+                    <p class="text-luxuryGold text-xs uppercase tracking-[0.3em] mb-7">
+                        Brokerage Services
+                    </p>
+
+                    <div class="space-y-7">
+                        <div class="border-b border-white/15 pb-6">
+                            <h3 class="font-display text-2xl">
+                                Luxury Residential
+                            </h3>
+
+                            <p class="text-sm text-white/65 mt-2 font-light">
+                                Condominiums, waterfront homes, private estates
+                                and new developments.
+                            </p>
+                        </div>
+
+                        <div class="border-b border-white/15 pb-6">
+                            <h3 class="font-display text-2xl">
+                                Seller Representation
+                            </h3>
+
+                            <p class="text-sm text-white/65 mt-2 font-light">
+                                Strategic pricing, professional positioning and
+                                comprehensive marketing.
+                            </p>
+                        </div>
+
+                        <div class="border-b border-white/15 pb-6">
+                            <h3 class="font-display text-2xl">
+                                Investments and Commercial
+                            </h3>
+
+                            <p class="text-sm text-white/65 mt-2 font-light">
+                                Income property, multifamily, land and
+                                commercial opportunities.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="font-display text-2xl">
+                                Rentals and Leasing
+                            </h3>
+
+                            <p class="text-sm text-white/65 mt-2 font-light">
+                                Tenant placement, landlord representation and
+                                luxury rental searches.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
+    </section>
 
-    </div>
-</main>
+    <!-- Seller CTA -->
+    <section
+        class="py-28 bg-fixed bg-cover bg-center text-white"
+        style="
+            background-image:
+                linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.72)),
+                url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1800&q=85');
+        "
+    >
+        <div class="max-w-4xl mx-auto px-6 text-center">
 
-<footer>
-    <p>William Henderson, Licensed Real Estate Broker</p>
-    <p>Miami, Florida</p>
-</footer>
+            <p class="text-luxuryGold text-xs uppercase tracking-[0.35em] mb-5">
+                Considering a Sale?
+            </p>
+
+            <h2 class="font-display text-4xl md:text-6xl mb-6">
+                Discover What Your Property
+                <span class="italic font-light">Could Be Worth</span>
+            </h2>
+
+            <p class="max-w-2xl mx-auto text-white/75 font-light leading-8 mb-9">
+                Receive a personalized property evaluation and confidential
+                consultation regarding your goals, timing and available
+                selling strategies.
+            </p>
+
+            <a
+                href="sellers.html"
+                class="inline-block bg-luxuryGold text-black px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em] hover:bg-white transition"
+            >
+                Request My Home Value
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-luxuryDark text-white">
+        <div class="max-w-7xl mx-auto px-6 py-16">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+                <div>
+                    <div class="font-display text-3xl tracking-[0.12em] uppercase">
+                        South Florida
+                    </div>
+
+                    <div class="text-[10px] tracking-[0.48em] uppercase text-luxuryGold mt-1">
+                        Estates
+                    </div>
+
+                    <p class="text-sm text-white/55 font-light leading-7 mt-7">
+                        Luxury real estate representation throughout Miami-Dade,
+                        Broward, Palm Beach and Monroe County.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-xs uppercase tracking-[0.25em] text-luxuryGold mb-6">
+                        Explore
+                    </h3>
+
+                    <div class="flex flex-col gap-3 text-sm text-white/65">
+                        <a href="buyers.html" class="hover:text-white">Buyers</a>
+                        <a href="sellers.html" class="hover:text-white">Sellers</a>
+                        <a href="rentals.html" class="hover:text-white">Rentals</a>
+                        <a href="commercial.html" class="hover:text-white">Commercial</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xs uppercase tracking-[0.25em] text-luxuryGold mb-6">
+                        Company
+                    </h3>
+
+                    <div class="flex flex-col gap-3 text-sm text-white/65">
+                        <a href="about.html" class="hover:text-white">About Us</a>
+                        <a href="agents.html" class="hover:text-white">Agents</a>
+                        <a href="blog.html" class="hover:text-white">Blog</a>
+                        <a href="contact.html" class="hover:text-white">Contact Us</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xs uppercase tracking-[0.25em] text-luxuryGold mb-6">
+                        Contact
+                    </h3>
+
+                    <div class="space-y-3 text-sm text-white/65">
+                        <p>William Henderson</p>
+                        <p>Licensed Real Estate Broker</p>
+                        <a href="tel:7863465611" class="block hover:text-white">
+                            786-346-5611
+                        </a>
+                        <p>Miami, Florida</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/10 mt-14 pt-8 text-center text-xs text-white/40">
+                © 2026 South Florida Estates. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuButton.addEventListener("click", function () {
+            mobileMenu.classList.toggle("hidden");
+        });
+    </script>
 
 </body>
 </html>
