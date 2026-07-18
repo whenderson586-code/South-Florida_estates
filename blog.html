@@ -1,57 +1,278 @@
-HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - South Florida Estates</title>
-    <link rel="stylesheet" href="style.css">
+
+    <title>South Florida Estates | Luxury Real Estate Brokerage</title>
+
+    <meta
+        name="description"
+        content="South Florida Estates represents buyers, sellers, investors and luxury property owners throughout Miami-Dade, Broward, Palm Beach and the Florida Keys."
+    >
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        luxuryGold: "#c6a15b",
+                        luxuryDark: "#111111",
+                        luxuryCream: "#f5f1e8"
+                    },
+                    fontFamily: {
+                        display: ["Cormorant Garamond", "serif"],
+                        body: ["Montserrat", "sans-serif"]
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .hero-background {
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.48),
+                    rgba(0, 0, 0, 0.62)
+                ),
+                url("https://images.unsplash.com/photo-1535498730771-e735b998cd64?auto=format&fit=crop&w=2000&q=90");
+
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .property-image {
+            transition: transform 0.7s ease;
+        }
+
+        .property-card:hover .property-image {
+            transform: scale(1.06);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-white text-neutral-900">
+<header class="absolute top-0 left-0 right-0 z-50 border-b border-white/20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="min-h-24 flex items-center justify-between">
 
-<header>
-    <div class="logo">
-        <h1>SOUTH FLORIDA ESTATES</h1>
-    </div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="buyers.html">Buyers</a>
-        <a href="sellers.html">Sellers</a>
-        <a href="rentals.html">Rentals</a>
-        <a href="commercial.html">Commercial</a>
-        <a href="agents.html">Agents</a>
-        <a href="blog.html" class="active">Blog</a>
-        <a href="contact.html">Contact Us</a>
-    </nav>
-</header>
+                <a href="index.html" class="text-white">
+                    <div class="font-display text-2xl md:text-3xl tracking-[0.15em] uppercase">
+                        South Florida
+                    </div>
 
-<div class="container">
-    <h2 class="page-title">South Florida Market Insights</h2>
-    <p class="intro-text">
-        Stay updated on emerging commercial trends, wholesale pricing cycles, and local residential projections across major South Florida hubs.
-    </p>
+                    <div class="text-[10px] tracking-[0.48em] uppercase text-luxuryGold">
+                        Estates
+                    </div>
+                </a>
 
-    <div class="card-grid">
-        <div class="blog-card">
-            <h3 style="color: #1a252f; margin-bottom: 5px;">The Rise of Wholesale Land Purchases</h3>
-            <p style="color: #777; font-size: 13px; margin-bottom: 15px;">Published: July 2026</p>
-            <p>How vacant mixed-use land acquisition is outperforming structured residential developments inside key high-density zones in 2026...</p>
+                <button
+                    id="mobile-menu-button"
+                    class="lg:hidden text-white text-2xl"
+                    aria-label="Open navigation menu"
+                >
+                    ☰
+                </button>
+
+                <nav class="hidden lg:flex items-center gap-7 text-[11px] uppercase tracking-[0.18em] text-white">
+                    <a href="index.html" class="text-luxuryGold">Home</a>
+                    <a href="about.html" class="hover:text-luxuryGold transition">About Us</a>
+                    <a href="buyers.html" class="hover:text-luxuryGold transition">Buyers</a>
+                    <a href="sellers.html" class="hover:text-luxuryGold transition">Sellers</a>
+                    <a href="rentals.html" class="hover:text-luxuryGold transition">Rentals</a>
+                    <a href="commercial.html" class="hover:text-luxuryGold transition">Commercial</a>
+                    <a href="agents.html" class="hover:text-luxuryGold transition">Agents</a>
+                    <a href="blog.html" class="hover:text-luxuryGold transition">Blog</a>
+
+                    <a
+                        href="contact.html"
+                        class="border border-luxuryGold px-5 py-3 hover:bg-luxuryGold hover:text-black transition"
+                    >
+                        Contact
+                    </a>
+                </nav>
+            </div>
+
+            <nav
+                id="mobile-menu"
+                class="hidden lg:hidden pb-6 text-sm uppercase tracking-wider text-white"
+            >
+                <div class="flex flex-col gap-4">
+                    <a href="index.html" class="text-luxuryGold">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="buyers.html">Buyers</a>
+                    <a href="sellers.html">Sellers</a>
+                    <a href="rentals.html">Rentals</a>
+                    <a href="commercial.html">Commercial</a>
+                    <a href="agents.html">Agents</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </nav>
         </div>
-        <div class="blog-card">
-            <h3 style="color: #1a252f; margin-bottom: 5px;">Why South Florida Real Estate Remains Resilient</h3>
-            <p style="color: #777; font-size: 13px; margin-bottom: 15px;">Published: June 2026</p>
-            <p>An inside look at tax relocations and continuous corporate demand that keeps both rental cap rates and buyers highly competitive...</p>
-        </div>
-    </div>
+    </header>
+
+<section class="hero-background min-h-[70vh] flex items-center justify-center text-white">
+<div class="max-w-5xl mx-auto px-6 text-center pt-24">
+<p class="text-luxuryGold text-xs uppercase tracking-[0.4em] mb-6">South Florida Estates</p>
+<h1 class="font-display text-6xl">Real Estate Blog</h1>
+<p class="max-w-3xl mx-auto mt-6 text-lg text-white/85">Market insights, buying, selling, investing and luxury living across South Florida.</p>
+</div></section>
+
+<section class="py-24 bg-luxuryCream">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-14">
+<p class="text-luxuryGold text-xs uppercase tracking-[0.35em]">Latest Articles</p>
+<h2 class="font-display text-5xl">Featured Blogs</h2>
 </div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
 
-<footer>
-    <p class="company-name">Premier Elite Realty / Royal Global Agency</p>
-    <p>William Henderson, Licensed Real Estate Broker</p>
-    <p>Miami, Florida</p>
-    <p>&copy; 2026 South Florida Estates. All Rights Reserved.</p>
-</footer>
+<!-- BLOG 1 START -->
+<article class="bg-white shadow-sm overflow-hidden">
+<img src="https://picsum.photos/800/500?random=1" class="w-full h-64 object-cover">
+<div class="p-8">
+<p class="text-luxuryGold text-xs uppercase tracking-[0.25em]">Category • Month 2026</p>
+<h3 class="font-display text-3xl mt-3">Blog Title 1</h3>
+<p class="text-neutral-600 mt-4">Replace this text with your blog excerpt. Edit only this block to update or add articles.</p>
+<a href="blog-post-1.html" class="inline-block mt-6 border-b border-luxuryGold pb-1 text-xs uppercase tracking-[0.2em]">Read More</a>
+</div>
+</article>
+<!-- BLOG 1 END -->
 
-</body>
-</html>
+<!-- BLOG 2 START -->
+<article class="bg-white shadow-sm overflow-hidden">
+<img src="https://picsum.photos/800/500?random=2" class="w-full h-64 object-cover">
+<div class="p-8">
+<p class="text-luxuryGold text-xs uppercase tracking-[0.25em]">Category • Month 2026</p>
+<h3 class="font-display text-3xl mt-3">Blog Title 2</h3>
+<p class="text-neutral-600 mt-4">Replace this text with your blog excerpt. Edit only this block to update or add articles.</p>
+<a href="blog-post-2.html" class="inline-block mt-6 border-b border-luxuryGold pb-1 text-xs uppercase tracking-[0.2em]">Read More</a>
+</div>
+</article>
+<!-- BLOG 2 END -->
+
+<!-- BLOG 3 START -->
+<article class="bg-white shadow-sm overflow-hidden">
+<img src="https://picsum.photos/800/500?random=3" class="w-full h-64 object-cover">
+<div class="p-8">
+<p class="text-luxuryGold text-xs uppercase tracking-[0.25em]">Category • Month 2026</p>
+<h3 class="font-display text-3xl mt-3">Blog Title 3</h3>
+<p class="text-neutral-600 mt-4">Replace this text with your blog excerpt. Edit only this block to update or add articles.</p>
+<a href="blog-post-3.html" class="inline-block mt-6 border-b border-luxuryGold pb-1 text-xs uppercase tracking-[0.2em]">Read More</a>
+</div>
+</article>
+<!-- BLOG 3 END -->
+
+<!-- BLOG 4 START -->
+<article class="bg-white shadow-sm overflow-hidden">
+<img src="https://picsum.photos/800/500?random=4" class="w-full h-64 object-cover">
+<div class="p-8">
+<p class="text-luxuryGold text-xs uppercase tracking-[0.25em]">Category • Month 2026</p>
+<h3 class="font-display text-3xl mt-3">Blog Title 4</h3>
+<p class="text-neutral-600 mt-4">Replace this text with your blog excerpt. Edit only this block to update or add articles.</p>
+<a href="blog-post-4.html" class="inline-block mt-6 border-b border-luxuryGold pb-1 text-xs uppercase tracking-[0.2em]">Read More</a>
+</div>
+</article>
+<!-- BLOG 4 END -->
+
+</div>
+</div>
+</section>
+<footer class="bg-luxuryDark text-white">
+        <div class="max-w-7xl mx-auto px-6 py-16">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+                <div>
+                    <div class="font-display text-3xl tracking-[0.12em] uppercase">
+                        South Florida
+                    </div>
+
+                    <div class="text-[10px] tracking-[0.48em] uppercase text-luxuryGold mt-1">
+                        Estates
+                    </div>
+
+                    <p class="text-sm text-white/55 font-light leading-7 mt-7">
+                        Luxury real estate representation throughout Miami-Dade,
+                        Broward, Palm Beach and Monroe County.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-xs uppercase tracking-[0.25em] text-luxuryGold mb-6">
+                        Explore
+                    </h3>
+
+                    <div class="flex flex-col gap-3 text-sm text-white/65">
+                        <a href="buyers.html" class="hover:text-white">Buyers</a>
+                        <a href="sellers.html" class="hover:text-white">Sellers</a>
+                        <a href="rentals.html" class="hover:text-white">Rentals</a>
+                        <a href="commercial.html" class="hover:text-white">Commercial</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xs uppercase tracking-[0.25em] text-luxuryGold mb-6">
+                        Company
+                    </h3>
+
+                    <div class="flex flex-col gap-3 text-sm text-white/65">
+                        <a href="about.html" class="hover:text-white">About Us</a>
+                        <a href="agents.html" class="hover:text-white">Agents</a>
+                        <a href="blog.html" class="hover:text-white">Blog</a>
+                        <a href="contact.html" class="hover:text-white">Contact Us</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xs uppercase tracking-[0.25em] text-luxuryGold mb-6">
+                        Contact
+                    </h3>
+
+                    <div class="space-y-3 text-sm text-white/65">
+                        <p>William Henderson</p>
+                        <p>Licensed Real Estate Broker</p>
+                        <a href="tel:7863465611" class="block hover:text-white">
+                            786-346-5611
+                        </a>
+                        <p>Miami, Florida</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/10 mt-14 pt-8 text-center text-xs text-white/40">
+                © 2026 South Florida Estates. All rights reserved.
+            </div>
+        </div>
+    </footer>
+<script>
+        const menuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuButton.addEventListener("click", function () {
+            mobileMenu.classList.toggle("hidden");
+        });
+    </script>
+
+
+</body></html>
