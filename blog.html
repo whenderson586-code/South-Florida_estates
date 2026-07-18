@@ -1,11 +1,16 @@
-HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - South Florida Estates</title>
-    <link rel="stylesheet" href="style.css">
+
+    <title>South Florida Estates | Luxury Real Estate Brokerage</title>
+
+    <meta
+        name="description"
+        content="South Florida Estates represents buyers, sellers, investors and luxury property owners throughout Miami-Dade, Broward, Palm Beach and the Florida Keys."
+    >
+
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,84 +39,165 @@ HTML
         };
     </script>
 
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
 
-</head>
-<body>
+        body {
+            font-family: "Montserrat", sans-serif;
+        }
 
-<header>
-    <div class="logo">
-        <h1>SOUTH FLORIDA ESTATES</h1>
-    </div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="buyers.html">Buyers</a>
-        <a href="sellers.html">Sellers</a>
-        <a href="rentals.html">Rentals</a>
-        <a href="commercial.html">Commercial</a>
-        <a href="agents.html">Agents</a>
-        <a href="blog.html" class="active">Blog</a>
-        <a href="contact.html">Contact Us</a>
-    </nav>
-</header>
-
-<div class="container">
-    <h2 class="page-title">South Florida Market Insights</h2>
-    <p class="intro-text">
-        Stay updated on emerging commercial trends, wholesale pricing cycles, and local residential projections across major South Florida hubs.
-    </p>
-
-    <div class="card-grid">
-        <div class="blog-card">
-            <h3 style="color: #1a252f; margin-bottom: 5px;">The Rise of Wholesale Land Purchases</h3>
-            <p style="color: #777; font-size: 13px; margin-bottom: 15px;">Published: July 2026</p>
-            <p>How vacant mixed-use land acquisition is outperforming structured residential developments inside key high-density zones in 2026...</p>
-        </div>
-        <div class="blog-card">
-            <h3 style="color: #1a252f; margin-bottom: 5px;">Why South Florida Real Estate Remains Resilient</h3>
-            <p style="color: #777; font-size: 13px; margin-bottom: 15px;">Published: June 2026</p>
-            <p>An inside look at tax relocations and continuous corporate demand that keeps both rental cap rates and buyers highly competitive...</p>
-        </div>
-    </div>
-</div>
-
-    <!-- Seller CTA -->
-    <section
-        class="py-28 bg-fixed bg-cover bg-center text-white"
-        style="
+        .hero-background {
             background-image:
-                linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.72)),
-                url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1800&q=85');
-        "
-    >
-        <div class="max-w-4xl mx-auto px-6 text-center">
+                linear-gradient(
+                    rgba(0, 0, 0, 0.48),
+                    rgba(0, 0, 0, 0.62)
+                ),
+                url("https://images.unsplash.com/photo-1535498730771-e735b998cd64?auto=format&fit=crop&w=2000&q=90");
 
-            <p class="text-luxuryGold text-xs uppercase tracking-[0.35em] mb-5">
-                Considering a Sale?
-            </p>
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
 
-            <h2 class="font-display text-4xl md:text-6xl mb-6">
-                Discover What Your Property
-                <span class="italic font-light">Could Be Worth</span>
-            </h2>
+        .property-image {
+            transition: transform 0.7s ease;
+        }
 
-            <p class="max-w-2xl mx-auto text-white/75 font-light leading-8 mb-9">
-                Receive a personalized property evaluation and confidential
-                consultation regarding your goals, timing and available
-                selling strategies.
-            </p>
+        .property-card:hover .property-image {
+            transform: scale(1.06);
+        }
+    </style>
+</head>
+<body class="bg-white text-neutral-900">
+<header class="absolute top-0 left-0 right-0 z-50 border-b border-white/20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="min-h-24 flex items-center justify-between">
 
-            <a
-                href="sellers.html"
-                class="inline-block bg-luxuryGold text-black px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em] hover:bg-white transition"
+                <a href="index.html" class="text-white">
+                    <div class="font-display text-2xl md:text-3xl tracking-[0.15em] uppercase">
+                        South Florida
+                    </div>
+
+                    <div class="text-[10px] tracking-[0.48em] uppercase text-luxuryGold">
+                        Estates
+                    </div>
+                </a>
+
+                <button
+                    id="mobile-menu-button"
+                    class="lg:hidden text-white text-2xl"
+                    aria-label="Open navigation menu"
+                >
+                    ☰
+                </button>
+
+                <nav class="hidden lg:flex items-center gap-7 text-[11px] uppercase tracking-[0.18em] text-white">
+                    <a href="index.html" class="text-luxuryGold">Home</a>
+                    <a href="about.html" class="hover:text-luxuryGold transition">About Us</a>
+                    <a href="buyers.html" class="hover:text-luxuryGold transition">Buyers</a>
+                    <a href="sellers.html" class="hover:text-luxuryGold transition">Sellers</a>
+                    <a href="rentals.html" class="hover:text-luxuryGold transition">Rentals</a>
+                    <a href="commercial.html" class="hover:text-luxuryGold transition">Commercial</a>
+                    <a href="agents.html" class="hover:text-luxuryGold transition">Agents</a>
+                    <a href="blog.html" class="hover:text-luxuryGold transition">Blog</a>
+
+                    <a
+                        href="contact.html"
+                        class="border border-luxuryGold px-5 py-3 hover:bg-luxuryGold hover:text-black transition"
+                    >
+                        Contact
+                    </a>
+                </nav>
+            </div>
+
+            <nav
+                id="mobile-menu"
+                class="hidden lg:hidden pb-6 text-sm uppercase tracking-wider text-white"
             >
-                Request My Home Value
-            </a>
+                <div class="flex flex-col gap-4">
+                    <a href="index.html" class="text-luxuryGold">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="buyers.html">Buyers</a>
+                    <a href="sellers.html">Sellers</a>
+                    <a href="rentals.html">Rentals</a>
+                    <a href="commercial.html">Commercial</a>
+                    <a href="agents.html">Agents</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </nav>
         </div>
-    </section>
+    </header>
 
-    <!-- Footer -->
-    <footer class="bg-luxuryDark text-white">
+<section class="hero-background min-h-[70vh] flex items-center justify-center text-white">
+<div class="max-w-5xl mx-auto px-6 text-center pt-24">
+<p class="text-luxuryGold text-xs uppercase tracking-[0.4em] mb-6">South Florida Estates</p>
+<h1 class="font-display text-6xl">Real Estate Blog</h1>
+<p class="max-w-3xl mx-auto mt-6 text-lg text-white/85">Market insights, buying, selling, investing and luxury living across South Florida.</p>
+</div></section>
+
+<section class="py-24 bg-luxuryCream">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-14">
+<p class="text-luxuryGold text-xs uppercase tracking-[0.35em]">Latest Articles</p>
+<h2 class="font-display text-5xl">Featured Blogs</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+<!-- BLOG 1 START -->
+<article class="bg-white shadow-sm overflow-hidden">
+<img src="https://picsum.photos/800/500?random=1" class="w-full h-64 object-cover">
+<div class="p-8">
+<p class="text-luxuryGold text-xs uppercase tracking-[0.25em]">Category • Month 2026</p>
+<h3 class="font-display text-3xl mt-3">Blog Title 1</h3>
+<p class="text-neutral-600 mt-4">Replace this text with your blog excerpt. Edit only this block to update or add articles.</p>
+<a href="blog-post-1.html" class="inline-block mt-6 border-b border-luxuryGold pb-1 text-xs uppercase tracking-[0.2em]">Read More</a>
+</div>
+</article>
+<!-- BLOG 1 END -->
+
+<!-- BLOG 2 START -->
+<article class="bg-white shadow-sm overflow-hidden">
+<img src="https://picsum.photos/800/500?random=2" class="w-full h-64 object-cover">
+<div class="p-8">
+<p class="text-luxuryGold text-xs uppercase tracking-[0.25em]">Category • Month 2026</p>
+<h3 class="font-display text-3xl mt-3">Blog Title 2</h3>
+<p class="text-neutral-600 mt-4">Replace this text with your blog excerpt. Edit only this block to update or add articles.</p>
+<a href="blog-post-2.html" class="inline-block mt-6 border-b border-luxuryGold pb-1 text-xs uppercase tracking-[0.2em]">Read More</a>
+</div>
+</article>
+<!-- BLOG 2 END -->
+
+<!-- BLOG 3 START -->
+<article class="bg-white shadow-sm overflow-hidden">
+<img src="https://picsum.photos/800/500?random=3" class="w-full h-64 object-cover">
+<div class="p-8">
+<p class="text-luxuryGold text-xs uppercase tracking-[0.25em]">Category • Month 2026</p>
+<h3 class="font-display text-3xl mt-3">Blog Title 3</h3>
+<p class="text-neutral-600 mt-4">Replace this text with your blog excerpt. Edit only this block to update or add articles.</p>
+<a href="blog-post-3.html" class="inline-block mt-6 border-b border-luxuryGold pb-1 text-xs uppercase tracking-[0.2em]">Read More</a>
+</div>
+</article>
+<!-- BLOG 3 END -->
+
+<!-- BLOG 4 START -->
+<article class="bg-white shadow-sm overflow-hidden">
+<img src="https://picsum.photos/800/500?random=4" class="w-full h-64 object-cover">
+<div class="p-8">
+<p class="text-luxuryGold text-xs uppercase tracking-[0.25em]">Category • Month 2026</p>
+<h3 class="font-display text-3xl mt-3">Blog Title 4</h3>
+<p class="text-neutral-600 mt-4">Replace this text with your blog excerpt. Edit only this block to update or add articles.</p>
+<a href="blog-post-4.html" class="inline-block mt-6 border-b border-luxuryGold pb-1 text-xs uppercase tracking-[0.2em]">Read More</a>
+</div>
+</article>
+<!-- BLOG 4 END -->
+
+</div>
+</div>
+</section>
+<footer class="bg-luxuryDark text-white">
         <div class="max-w-7xl mx-auto px-6 py-16">
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -179,8 +265,14 @@ HTML
             </div>
         </div>
     </footer>
+<script>
+        const menuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuButton.addEventListener("click", function () {
+            mobileMenu.classList.toggle("hidden");
+        });
+    </script>
 
 
-
-</body>
-</html>
+</body></html>
