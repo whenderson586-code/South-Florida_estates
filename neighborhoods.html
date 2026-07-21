@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<title>Neighborhoods | William Henderson Real Estate</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{--navy:#071725;--gold:#caa565;--cream:#f6f2e9;--white:#fff;--text:#1d2a35;--muted:#687783;--border:rgba(8,23,37,.13);--shadow:0 22px 60px rgba(8,23,37,.14);--radius:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}
+.container{width:min(1180px,92%);margin:0 auto}
+.site-header{position:fixed;top:0;left:0;right:0;height:82px;z-index:1000;background:#071725;border-bottom:1px solid rgba(255,255,255,.1)}
+.nav-wrap{height:82px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.brand{color:#fff;font:700 1.08rem "Playfair Display",Georgia,serif;line-height:1.1;white-space:nowrap}
+.brand span{display:block;color:var(--gold);font:700 .61rem Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;margin-top:4px}
+.nav-links{display:flex;gap:15px;align-items:center}
+.nav-links a{color:#fff;font-size:.77rem;font-weight:600}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.menu-toggle{display:none;border:0;background:transparent;color:#fff;font-size:1.7rem}
+.hero{height:900px;min-height:900px;position:relative;display:flex;align-items:center;overflow:hidden;color:#fff;margin-top:0}
+.hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,14,24,.9) 0%,rgba(3,14,24,.63) 38%,rgba(3,14,24,.16) 72%,rgba(3,14,24,.02) 100%)}
+.hero-content{position:relative;z-index:2;padding-top:120px}
+.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:.18em;font-size:.76rem;font-weight:800}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;line-height:1.08;margin-top:0}
+h1{font-size:clamp(4.1rem,6.7vw,7rem);max-width:820px;margin:16px 0 22px}
+h2{font-size:clamp(2.25rem,4vw,3.8rem)}
+h3{font-size:1.42rem;margin-bottom:8px}
+p{color:var(--muted)}
+.hero p{color:rgba(255,255,255,.88);font-size:1.08rem;max-width:720px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:999px;border:1px solid transparent;font-weight:800;cursor:pointer}
+.btn-primary{background:var(--gold);color:var(--navy)}
+.btn-secondary{border-color:rgba(255,255,255,.8);color:#fff;background:rgba(255,255,255,.04)}
+.search-panel{margin-top:-65px;position:relative;z-index:5;background:#fff;box-shadow:var(--shadow);border-radius:var(--radius);padding:25px}
+.search-grid{display:grid;grid-template-columns:1.25fr .9fr .85fr .85fr .7fr auto;gap:12px}
+.field label{display:block;font-size:.76rem;font-weight:800;margin-bottom:6px;color:var(--navy)}
+.field input,.field select,.field textarea{width:100%;padding:13px 14px;border:1px solid var(--border);border-radius:10px;background:#fff}
+.btn-dark{background:var(--navy);color:#fff;min-height:49px;align-self:end}
+.section{padding:86px 0}.section.alt{background:var(--cream)}
+.section-title{max-width:760px;margin-bottom:34px}.section-title p{color:var(--muted)}
+.area-grid,.property-grid,.building-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.area-card,.property-card,.building-card{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:#fff;transition:.25s ease}
+.area-card:hover,.property-card:hover,.building-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.area-card{min-height:310px;position:relative;color:#fff;display:flex;align-items:flex-end;padding:24px;background-size:cover;background-position:center}
+.area-card:before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 25%,rgba(5,14,23,.86))}
+.area-card>div{position:relative;z-index:1}.area-card p{color:rgba(255,255,255,.82);margin:0}
+.building-card img{height:250px;width:100%;object-fit:cover}.property-card img{height:245px;width:100%;object-fit:cover}
+.card-body{padding:21px}.price{color:var(--navy);font-size:1.28rem;font-weight:900}
+.property-meta{display:flex;gap:13px;flex-wrap:wrap;font-size:.83rem;color:var(--muted);margin-top:12px}
+.tag{display:inline-block;padding:5px 9px;border-radius:999px;background:var(--cream);font-size:.7rem;font-weight:800;color:var(--navy)}
+.center-action{text-align:center;margin-top:30px}.text-link{color:var(--navy);font-weight:800;border-bottom:1px solid var(--gold);padding-bottom:3px}
+.split-heading{max-width:none;display:flex;justify-content:space-between;align-items:end;gap:30px}
+.content-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:58px;align-items:start}.agent-profile{align-items:center}
+.agent-photo{min-height:480px;border-radius:var(--radius);overflow:hidden;background:#ddd}
+.placeholder-photo{display:grid;place-items:center;background:linear-gradient(140deg,#d8d3c9,#f5f1e8);border:1px solid var(--border);color:var(--navy);text-align:center;font-weight:800;font-size:1.25rem}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.form-grid .full{grid-column:1/-1}
+.cta-band{background:var(--navy);color:#fff;padding:76px 0}.cta-band p{color:rgba(255,255,255,.72)}
+.lead-form{background:#fff;color:var(--text);padding:30px;border-radius:var(--radius)}
+.site-footer{background:#06111b;color:#fff;padding:48px 0}.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:42px}
+.site-footer p,.site-footer a{color:rgba(255,255,255,.66)}.footer-phone{color:var(--gold)!important;font-weight:900}
+.footer-links{display:grid;gap:7px}
+.listing-results{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:1060px){
+ .menu-toggle{display:block}.nav-links{display:none;position:absolute;top:82px;left:0;right:0;flex-direction:column;align-items:flex-start;padding:24px 4%;background:var(--navy)}
+ .nav-links.open{display:flex}.search-grid{grid-template-columns:1fr 1fr}
+ .area-grid,.property-grid,.building-grid{grid-template-columns:repeat(2,1fr)}
+ .content-grid{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+ .hero{height:760px;min-height:760px}.hero-image{object-position:62% center}.hero-content{padding-top:110px}
+ h1{font-size:3.2rem}.search-panel{margin-top:-38px}
+ .search-grid,.form-grid,.area-grid,.property-grid,.building-grid{grid-template-columns:1fr}
+ .form-grid .full{grid-column:auto}.footer-grid{grid-template-columns:1fr}
+}
+</style>
+<style>
+/* FINAL HOMEPAGE POLISH */
+body {
+  overflow-x: hidden;
+}
+
+.site-header {
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+}
+
+.nav-links {
+  gap: 18px;
+}
+
+.nav-links a {
+  position: relative;
+  padding: 30px 0 27px;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 20px;
+  height: 2px;
+  background: var(--gold);
+  transition: right .25s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  right: 0;
+}
+
+.hero-content {
+  max-width: 1180px;
+}
+
+.hero p {
+  max-width: 680px;
+}
+
+.search-panel {
+  border: 1px solid rgba(8,23,37,.08);
+}
+
+.search-grid {
+  align-items: end;
+}
+
+.field select,
+.field input,
+.field textarea {
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.field select:focus,
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(202,165,101,.16);
+}
+
+.btn,
+.search-button {
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+.btn:hover,
+.search-button:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 10px 24px rgba(202,165,101,.28);
+}
+
+.btn-outline-dark {
+  border-color: var(--navy);
+  color: var(--navy);
+  background: transparent;
+}
+
+.btn-outline-dark:hover {
+  background: var(--navy);
+  color: #fff;
+}
+
+.area-card,
+.building-card,
+.property-card {
+  height: 100%;
+}
+
+.area-card {
+  min-height: 330px;
+}
+
+.area-card h3,
+.building-card h3,
+.property-card h3 {
+  min-height: 2.3em;
+}
+
+.building-card img,
+.property-card img {
+  aspect-ratio: 4/3;
+  height: auto;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 1px);
+}
+
+.card-body .price {
+  margin-top: auto;
+}
+
+.section + .section {
+  border-top: 1px solid rgba(8,23,37,.04);
+}
+
+.broker-section {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 58px;
+  align-items: center;
+}
+
+.broker-copy {
+  max-width: 720px;
+}
+
+.broker-copy h2 {
+  margin-bottom: 20px;
+}
+
+.broker-points {
+  display: grid;
+  gap: 16px;
+}
+
+.point-card {
+  background: var(--cream);
+  border: 1px solid rgba(8,23,37,.08);
+  border-radius: 16px;
+  padding: 22px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.point-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(8,23,37,.08);
+}
+
+.point-card span {
+  color: var(--gold);
+  font-weight: 800;
+  font-size: .76rem;
+  letter-spacing: .14em;
+}
+
+.point-card h3 {
+  margin: 7px 0 6px;
+  min-height: auto;
+}
+
+.point-card p {
+  margin: 0;
+}
+
+.cta-band .content-grid {
+  align-items: center;
+}
+
+.lead-form {
+  box-shadow: 0 22px 50px rgba(0,0,0,.18);
+}
+
+.site-footer {
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+.site-footer h3 {
+  margin-bottom: 14px;
+}
+
+.footer-phone {
+  display: inline-block;
+  margin-top: 8px;
+}
+
+@media (max-width: 1060px) {
+  .broker-section {
+    grid-template-columns: 1fr;
+  }
+
+  .broker-points {
+    grid-template-columns: repeat(3,1fr);
+  }
+
+  .nav-links a {
+    padding: 6px 0;
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .broker-points {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .search-panel {
+    padding: 20px;
+  }
+
+  .section {
+    padding: 68px 0;
+  }
+
+  .area-card {
+    min-height: 300px;
+  }
+
+  .cta-band .content-grid {
+    gap: 34px;
+  }
+}
+
+@media (max-width: 520px) {
+  .brand {
+    font-size: .95rem;
+  }
+
+  .brand span {
+    font-size: .54rem;
+  }
+
+  .hero h1 {
+    font-size: 2.9rem;
+  }
+
+  .hero p {
+    font-size: .96rem;
+  }
+
+  .search-panel {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-grid {
+    gap: 26px;
+  }
+}
+</style>
+<style>
+/* Homepage polish */
+.hero{
+  overflow:hidden !important;
+}
+.hero-image{
+  display:block !important;
+  margin:0 !important;
+}
+.search-panel{
+  margin-top:-55px !important;
+  position:relative !important;
+  z-index:20 !important;
+  background:#fff !important;
+  border:1px solid rgba(8,23,37,.08) !important;
+}
+/* Remove gray strip between hero and search */
+.hero::after{
+  content:none !important;
+}
+main{
+  background:#fff !important;
+}
+</style>
+<style>
+/* HOMEPAGE VERSION 2.0 */
+.site-header{
+  backdrop-filter:blur(14px);
+}
+.brand{
+  font-size:1.2rem !important;
+}
+.nav-links{
+  gap:18px !important;
+}
+.hero{
+  min-height:920px !important;
+}
+.hero-image{
+  transform:scale(1.03);
+  animation:heroZoom 18s ease-in-out infinite alternate;
+}
+@keyframes heroZoom{
+  from{transform:scale(1.03)}
+  to{transform:scale(1.08)}
+}
+.hero-overlay{
+  background:
+    linear-gradient(90deg,rgba(3,14,24,.91) 0%,rgba(3,14,24,.66) 38%,rgba(3,14,24,.18) 72%,rgba(3,14,24,.03) 100%) !important;
+}
+.search-shell{
+  position:relative;
+  z-index:30;
+  margin-top:-72px;
+}
+.luxury-search{
+  display:grid;
+  grid-template-columns:1.35fr 1fr .9fr .9fr .62fr .62fr auto;
+  gap:12px;
+  align-items:end;
+  padding:24px;
+  border-radius:18px;
+  background:#fff;
+  border:1px solid rgba(8,23,37,.08);
+  box-shadow:0 24px 60px rgba(8,23,37,.18);
+}
+.luxury-search .field select{
+  min-height:49px;
+}
+.search-button{
+  min-height:49px;
+  padding:0 28px;
+  border:0;
+  border-radius:12px;
+  background:var(--navy);
+  color:#fff;
+  font-weight:800;
+  cursor:pointer;
+}
+.area-grid-eight{
+  grid-template-columns:repeat(4,1fr) !important;
+}
+.area-grid-eight .area-card{
+  min-height:300px;
+}
+.card-link{
+  display:inline-block;
+  margin-top:14px;
+  color:var(--navy);
+  font-size:.78rem;
+  font-weight:800;
+}
+.building-card img{
+  height:280px !important;
+}
+.property-card img{
+  height:270px !important;
+}
+.property-card .price{
+  font-size:1.4rem !important;
+}
+.footer-legal{
+  display:flex;
+  flex-wrap:wrap;
+  gap:18px;
+  margin-top:34px;
+  padding-top:22px;
+  border-top:1px solid rgba(255,255,255,.08);
+  color:rgba(255,255,255,.48);
+  font-size:.73rem;
+}
+.footer-legal a{
+  color:rgba(255,255,255,.48);
+}
+@media(max-width:1180px){
+  .luxury-search{
+    grid-template-columns:repeat(3,1fr);
+  }
+  .search-button{
+    width:100%;
+  }
+}
+@media(max-width:900px){
+  .area-grid-eight{
+    grid-template-columns:repeat(2,1fr) !important;
+  }
+}
+@media(max-width:680px){
+  .hero{
+    min-height:760px !important;
+  }
+  .luxury-search{
+    grid-template-columns:1fr;
+  }
+  .area-grid-eight{
+    grid-template-columns:1fr !important;
+  }
+  .footer-legal{
+    flex-direction:column;
+    gap:8px;
+  }
+}
+</style>
+<style>
+/* FINAL HOMEPAGE VISUAL REFINEMENTS */
+.brand {
+  font-size: 1.34rem !important;
+}
+
+.nav-links a {
+  font-size: .86rem !important;
+  letter-spacing: .01em;
+}
+
+.nav-links a::after {
+  transition: right .28s ease, opacity .28s ease !important;
+}
+
+.hero {
+  min-height: 980px !important;
+  height: 980px !important;
+}
+
+.hero-content {
+  padding-top: 175px !important;
+}
+
+.hero h1 {
+  margin-top: 20px !important;
+  margin-bottom: 24px !important;
+}
+
+.area-card {
+  background-position: center center !important;
+}
+
+.area-card::before {
+  background: linear-gradient(transparent 28%, rgba(5,14,23,.90)) !important;
+}
+
+@media (max-width: 1060px) {
+  .brand {
+    font-size: 1.16rem !important;
+  }
+
+  .nav-links a {
+    font-size: .84rem !important;
+  }
+
+  .hero {
+    min-height: 860px !important;
+    height: 860px !important;
+  }
+
+  .hero-content {
+    padding-top: 145px !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .brand {
+    font-size: 1rem !important;
+  }
+
+  .hero {
+    min-height: 780px !important;
+    height: 780px !important;
+  }
+
+  .hero-content {
+    padding-top: 120px !important;
+  }
+}
+</style>
+<style>
+/* RESTORE APPROVED SKYLINE PROPORTIONS */
+.hero {
+  height: 900px !important;
+  min-height: 900px !important;
+}
+
+.hero-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+.hero-content {
+  padding-top: 120px !important;
+}
+
+.hero h1 {
+  margin-top: 16px !important;
+  margin-bottom: 22px !important;
+}
+
+@media (max-width: 1060px) {
+  .hero {
+    height: 820px !important;
+    min-height: 820px !important;
+  }
+
+  .hero-content {
+    padding-top: 125px !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .hero {
+    height: 760px !important;
+    min-height: 760px !important;
+  }
+
+  .hero-content {
+    padding-top: 110px !important;
+  }
+}
+</style>
+<style>
+/* MATCH HOME HERO TO ABOUT PAGE */
+.hero {
+  height: 620px !important;
+  min-height: 620px !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  overflow: hidden !important;
+  color: #fff !important;
+}
+
+.hero-image {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+.hero-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(
+    90deg,
+    rgba(3,14,24,.90) 0%,
+    rgba(3,14,24,.64) 40%,
+    rgba(3,14,24,.18) 74%,
+    rgba(3,14,24,.03) 100%
+  ) !important;
+}
+
+.hero .container.hero-content {
+  width: auto !important;
+  max-width: 820px !important;
+  margin-left: 6vw !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 24px !important;
+}
+
+.hero-content {
+  position: relative !important;
+  z-index: 2 !important;
+  padding-top: 95px !important;
+  padding-bottom: 0 !important;
+}
+
+.hero h1 {
+  margin: 16px 0 20px !important;
+  font-size: clamp(4rem, 6.5vw, 6.6rem) !important;
+  max-width: 780px !important;
+}
+
+.hero p {
+  max-width: 720px !important;
+  margin-left: 0 !important;
+}
+
+.search-shell {
+  margin-top: -48px !important;
+}
+
+@media (max-width: 1060px) {
+  .hero .container.hero-content {
+    margin-left: 4vw !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .hero {
+    height: 540px !important;
+    min-height: 540px !important;
+  }
+
+  .hero-image {
+    object-position: 62% center !important;
+  }
+
+  .hero .container.hero-content {
+    margin-left: 4vw !important;
+    padding-right: 4vw !important;
+  }
+
+  .hero-content {
+    padding-top: 90px !important;
+  }
+
+  .hero h1 {
+    font-size: 3.2rem !important;
+  }
+
+  .search-shell {
+    margin-top: -38px !important;
+  }
+}
+</style>
+<style id="homepage-fix">
+.hero::before,.hero::after{display:none!important;content:none!important}
+.hero,.hero-overlay,.hero-image{border-bottom:0!important;box-shadow:none!important}
+.search-shell,.search-panel{margin-top:-62px!important;position:relative!important;z-index:999!important;background:#fff!important}
+.search-shell::before,.search-shell::after,.search-panel::before,.search-panel::after{display:none!important;content:none!important}
+main{background:linear-gradient(to bottom,transparent 0,transparent 558px,#fff 558px,#fff 100%)!important}
+</style>
+</head>
+<body>
+<header class="site-header">
+<div class="container nav-wrap">
+<a class="brand" href="index.html">William Henderson<span>South Florida Real Estate</span></a>
+<button aria-label="Open navigation" class="menu-toggle" type="button">☰</button>
+<nav aria-label="Main navigation" class="nav-links">
+<a href="index.html">Home</a>
+<a href="about.html">About Us</a>
+<a href="buyers.html">Buyers</a>
+<a href="sellers.html">Sellers</a>
+<a href="rentals.html">Rentals</a>
+<a href="commercial.html">Commercial</a>
+<a class="active" href="neighborhoods.html">Neighborhoods</a>
+<a href="buildings.html">Luxury Buildings</a>
+<a href="agents.html">Agents</a>
+<a href="blog.html">Blog</a>
+<a href="contact.html">Contact Us</a>
+</nav>
+</div>
+</header>
+<main>
+<section aria-label="Neighborhoods" class="hero">
+<div class="hero-overlay"></div>
+<div class="container hero-content">
+<span class="eyebrow">Neighborhoods</span>
+<h1>Explore South Florida Neighborhoods</h1>
+<p>Browse Miami Beach, Brickell, Coconut Grove, Coral Gables, Key Biscayne, Sunny Isles Beach, Aventura, Fort Lauderdale and more.</p>
+</div>
+</section>
+<section class="section"><div class="container">
+<div class="section-title"><h2>Featured Neighborhoods</h2></div>
+<div class="building-grid">
+<div class="building-card"><div class="card-body"><h3>Miami Beach</h3><p>Luxury homes and market insights.</p></div></div><div class="building-card"><div class="card-body"><h3>Brickell</h3><p>Luxury homes and market insights.</p></div></div><div class="building-card"><div class="card-body"><h3>Coconut Grove</h3><p>Luxury homes and market insights.</p></div></div><div class="building-card"><div class="card-body"><h3>Coral Gables</h3><p>Luxury homes and market insights.</p></div></div><div class="building-card"><div class="card-body"><h3>Sunny Isles Beach</h3><p>Luxury homes and market insights.</p></div></div><div class="building-card"><div class="card-body"><h3>Aventura</h3><p>Luxury homes and market insights.</p></div></div><div class="building-card"><div class="card-body"><h3>Key Biscayne</h3><p>Luxury homes and market insights.</p></div></div><div class="building-card"><div class="card-body"><h3>Fort Lauderdale</h3><p>Luxury homes and market insights.</p></div></div></div>
+</div></section>
+</main>
+<footer class="site-footer">
+<div class="container footer-grid">
+<div>
+<h3>William Henderson Broker</h3>
+<p>Luxury homes, rentals, investments and commercial real estate across South Florida.</p>
+<a class="footer-phone" href="tel:+17863465611">786-346-5611</a>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="buyers.html">Buyers</a><a href="sellers.html">Sellers</a>
+<a href="rentals.html">Rentals</a><a href="commercial.html">Commercial</a>
+<a href="contact.html">Contact</a>
+</div>
+</div>
+<div>
+<h3>Explore</h3>
+<div class="footer-links">
+<a href="neighborhoods.html">Neighborhoods</a>
+<a href="buildings.html">Luxury Buildings</a>
+<a href="blog.html">Market Insights</a>
+<a href="about.html">About William</a>
+</div>
+</div>
+</div>
+<div class="container footer-legal">
+<span>© 2026 William Henderson Broker</span>
+<span>REALTOR®</span>
+<span>Equal Housing Opportunity</span>
+<a href="privacy.html">Privacy Policy</a>
+</div>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+ const toggle=document.querySelector(".menu-toggle"),nav=document.querySelector(".nav-links");
+ if(toggle&&nav)toggle.addEventListener("click",()=>nav.classList.toggle("open"));
+ renderFeaturedListings();
+ const form=document.getElementById("homeSearch");
+ if(form)form.addEventListener("submit",e=>{e.preventDefault();alert("The search layout is ready. Live MLS results will appear after IDX is connected.");});
+});
+const sampleListings=[
+ {title:"Oceanfront Residence",area:"Miami Beach",type:"Condo",price:2450000,beds:3,baths:3,image:"https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=82"},
+ {title:"Palm Beach Estate",area:"Palm Beach",type:"Single Family",price:3950000,beds:5,baths:6,image:"https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=82"},
+ {title:"Fort Lauderdale Waterfront",area:"Fort Lauderdale",type:"Single Family",price:1850000,beds:4,baths:4,image:"https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=82"},
+ {title:"Florida Keys Retreat",area:"Islamorada",type:"Single Family",price:2895000,beds:4,baths:3,image:"https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=900&q=82"}
+];
+function renderFeaturedListings(){
+ const target=document.getElementById("featuredListings");if(!target)return;
+ target.innerHTML=sampleListings.map(x=>`<article class="property-card"><img src="${x.image}" alt="${x.title}"><div class="card-body"><span class="tag">${x.area}</span><h3>${x.title}</h3><div class="price">$${x.price.toLocaleString()}</div><div class="property-meta"><span>${x.beds} Beds</span><span>${x.baths} Baths</span><span>${x.type}</span></div></div></article>`).join("");
+}
+</script>
+<script>
+        document.addEventListener("DOMContentLoaded", function(){
+          const form=document.getElementById("homeSearch");
+          if(form){
+            form.addEventListener("submit", function(e){
+              e.preventDefault();
+              alert("The luxury search layout is ready. Live MLS results will appear after IDX is connected.");
+            });
+          }
+        });
+        </script>
+</body>
+</html>
